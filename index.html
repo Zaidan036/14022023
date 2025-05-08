@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Kekasih Tercinta</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 20px;
+      color: #d63384;
+    }
+    #slideshow {
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    #slideshow img {
+      width: 100%;
+      border-radius: 20px;
+    }
+    #loveLetter {
+      background: #ffe6f0;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 15px;
+      font-size: 18px;
+      color: #660033;
+    }
+    .timer {
+      font-size: 20px;
+      color: #cc3366;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>❤️ Untuk Cintaku Tersayang ❤️</h1>
+
+  <!-- Slideshow -->
+  <div id="slideshow">
+    <img id="slide" src="https://placekitten.com/400/300" alt="Love Photos">
+  </div>
+
+  <!-- Surat Cinta -->
+  <div id="loveLetter">
+    Sayangku,  
+    <br><br>
+    Terima kasih sudah menjadi bagian dari hidupku. Bersamamu aku merasa utuh dan bahagia. Setiap detik bersamamu adalah anugerah yang tak ternilai.
+    <br><br>
+    Aku mencintaimu hari ini, esok, dan selamanya 💖
+  </div>
+
+  <!-- Hari Jadian -->
+  <div class="timer" id="hariJadian"></div>
+
+  <!-- Countdown Anniversary -->
+  <div class="timer" id="countdownAnniversary"></div>
+
+  <!-- Musik -->
+  <audio id="musik" autoplay loop>
+    <source src="bungabadi.mp3" type="audio/mpeg">
+    Browser tidak mendukung audio.
+  </audio>
+  
+  <button onclick="document.getElementById('musik').play()">Putar Musik</button>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <script>
+    setInterval(() => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }, 5000);
+
+    // Slideshow
+    const images = [
+      'foto1.jpg',
+    'foto2.jpg',
+    'foto3.jpg'
+    ];
+    let index = 0;
+    setInterval(() => {
+      document.getElementById("slide").src = images[index];
+      index = (index + 1) % images.length;
+    }, 3000);
+
+    // Hari Jadian
+    const jadianDate = new Date("2021-06-01");
+    const today = new Date();
+    const diff = Math.floor((today - jadianDate) / (1000 * 60 * 60 * 24));
+    document.getElementById("hariJadian").innerText = `Kita sudah bersama selama ${diff} hari 💘`;
+  </script>
+</body>
+</html>
